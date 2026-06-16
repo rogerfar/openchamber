@@ -19,6 +19,7 @@ on:
 env:
   CARGO_INCREMENTAL: 0
   RUST_BACKTRACE: short
+  BUILDKIT_PROGRESS: plain
 
 permissions:
   contents: write
@@ -169,6 +170,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          provenance: false
 
   build-desktop-electron-macos:
     needs: create-release

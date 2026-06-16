@@ -19,6 +19,8 @@ RUN bun run build:web
 FROM oven/bun:1.3.5 AS runtime
 WORKDIR /home/openchamber
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
   bash \
   ca-certificates \
@@ -28,6 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   npm \
   openssh-client \
   python3 \
+  && update-ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
 # Replace the base image's 'bun' user (UID 1000) with 'openchamber'
