@@ -239,7 +239,7 @@ OpenChamber will be reachable at `http://<your-vpn-hostname>:3000` from any devi
 <details>
 <summary>Docker</summary>
 
-```bash
+```yaml
 services:
   openchamber:
     image: ghcr.io/openchamber/openchamber:latest
